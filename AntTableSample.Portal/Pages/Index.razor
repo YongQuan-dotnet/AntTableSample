@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using AntTableSample.Portal.DataContext
 
 <PageTitle>Index</PageTitle>
 
@@ -8,4 +9,41 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<Button Type="@ButtonType.Primary">Hello World!</Button>
+<Table DataSource="Properties" TItem="Property">
+    <Column TData="int"
+            @bind-Field="context.Id"
+            Sortable
+            Filterable
+            ShowSorterTooltip="false">
+    </Column>
+
+    <Column TData="string"
+            Title="Address"
+            @bind-Field="context.Address"
+            Sortable
+            Filterable
+            ShowSorterTooltip="false">
+    </Column>
+
+    <Column TData="string"
+            Title="Suburb"
+            @bind-Field="context.Suburb"
+            Sortable
+            Filterable
+            ShowSorterTooltip="false" SorterMultiple="5"/>
+
+    <Column TData="string"
+            Title="Postcode"
+            @bind-Field="context.Postcode"
+            Sortable
+            Filterable
+            ShowSorterTooltip="false" SorterMultiple="3">
+    </Column>
+
+    <Column TData="string"
+            Title="State"
+            @bind-Field="context.State"
+            Sortable
+            Filterable
+            ShowSorterTooltip="false" SorterMultiple="4"/>
+</Table>
