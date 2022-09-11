@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntTableSample.Portal", "AntTableSample.Portal\AntTableSample.Portal.csproj", "{A338A4FC-A94B-449D-898E-A017766F0962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntTableSample.Portal", "AntTableSample.Portal\AntTableSample.Portal.csproj", "{A338A4FC-A94B-449D-898E-A017766F0962}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{765E1821-D5BA-4692-90A6-8460FE5460FD}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign", "..\..\..\..\Dev\OpenSource\Blazor\ant-design-blazor\components\AntDesign.csproj", "{33A7EEDA-9D60-44FE-BDCD-023187E1F577}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{A338A4FC-A94B-449D-898E-A017766F0962}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A338A4FC-A94B-449D-898E-A017766F0962}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A338A4FC-A94B-449D-898E-A017766F0962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33A7EEDA-9D60-44FE-BDCD-023187E1F577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33A7EEDA-9D60-44FE-BDCD-023187E1F577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33A7EEDA-9D60-44FE-BDCD-023187E1F577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33A7EEDA-9D60-44FE-BDCD-023187E1F577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

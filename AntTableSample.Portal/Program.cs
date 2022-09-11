@@ -1,6 +1,6 @@
 using AntTableSample.Portal.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using AntTableSample.Portal.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,16 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddAntDesign();
 builder.Services.AddSingleton<WeatherForecastService>();
+
+var config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
+void BuildOptions(DbContextOptionsBuilder options) => options
+    .UseSqlServer(config.GetConnectionString("DefaultConnection"));
+
+builder.Services.AddDbContextFactory<PropertyDbContext>(BuildOptions);
+
+MigrateDB();
 
 var app = builder.Build();
 
@@ -30,3 +40,13 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+
+
+void MigrateDB()
+{
+    var context = builder.Services.BuildServiceProvider().GetRequiredService<PropertyDbContext>();
+    if (context.Database.GetPendingMigrations().Any())
+    {
+        context.Database.Migrate();
+    }
+}
