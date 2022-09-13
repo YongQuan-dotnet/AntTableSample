@@ -10,39 +10,30 @@ Welcome to your new app.
 <SurveyPrompt Title="How is Blazor working for you?" />
 
 <Table DataSource="Properties" TItem="Property">
-    <Column TData="int"
-            @bind-Field="context.Id"
+    <PropertyColumn Property="x => x.Id"
             Sortable
             Filterable
             ShowSorterTooltip="false">
-    </Column>
+    </PropertyColumn>
 
-    <Column TData="string"
-            Title="Address"
-            @bind-Field="context.Address"
+    <PropertyColumn Property="x => x.Address"
             Sortable
             Filterable
             ShowSorterTooltip="false">
-    </Column>
+    </PropertyColumn>
 
-    <Column TData="string"
-            Title="Suburb"
-            @bind-Field="context.Suburb"
+    <PropertyColumn Property="x => x.Suburb"
             Sortable
             Filterable
             ShowSorterTooltip="false" SorterMultiple="5"/>
 
-    <Column TData="string"
-            Title="Postcode"
-            @bind-Field="context.Postcode"
+    <PropertyColumn Property="x => x.Postcode"
             Sortable
             Filterable
             ShowSorterTooltip="false" SorterMultiple="3">
-    </Column>
+    </PropertyColumn>
 
-    <Column TData="string"
-            Title="State"
-            @bind-Field="context.State"
+    <PropertyColumn Property="x => x.State"
             Sortable
             Filterable
             ShowSorterTooltip="false" SorterMultiple="4"/>
