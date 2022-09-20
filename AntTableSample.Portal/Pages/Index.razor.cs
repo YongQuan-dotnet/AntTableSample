@@ -5,17 +5,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AntTableSample.Portal.Pages
 {
-    public partial class Index
+    public partial class Index : IDisposable
     {
         [Inject]
         IDbContextFactory<PropertyDbContext> DbContextFactory { get; set; }
+
+        private PropertyDbContext DbContext;
 
         private IQueryable<Property> Properties { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            var context = DbContextFactory.CreateDbContext();
-            Properties = context.Properties;
+            DbContext = DbContextFactory.CreateDbContext();
+            Properties = DbContext.Properties;
+        }
+
+        public void Dispose()
+        {
+            DbContext?.Dispose();
         }
     }
 }
